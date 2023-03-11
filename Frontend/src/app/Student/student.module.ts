@@ -23,8 +23,13 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CoursePlaylistComponent } from './components/course-playlist/course-playlist.component';
 import { VideoComponent } from './components/video/video.component';
+import { QuizComponent } from './components/quiz/quiz.component';
 
 const routes: Routes = [
+  {
+    path: 'quiz',
+    component: QuizComponent,
+  },
   {
     path: 'profile',
     component: ProfileComponent,
@@ -42,7 +47,8 @@ const routes: Routes = [
   entryComponents:[ProfileComponent],
   declarations: [
     CoursePlaylistComponent,
-    VideoComponent
+    VideoComponent,
+    QuizComponent
   ],
   imports: [
     CommonModule,
