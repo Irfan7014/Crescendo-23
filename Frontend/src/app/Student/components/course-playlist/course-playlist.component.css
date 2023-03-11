@@ -1,0 +1,174 @@
+.course-playlist-component{
+    background-color:#E5E5E5
+}
+.course-start-div{
+    width: 90%;
+    height: 440px;
+    margin-left: 80px;
+    margin-top: 20px;
+    background: #EFEBF5;
+    border-radius: 20px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+#playing-video{
+    margin: 7% 0 4% 7%;
+    width: 640px;
+    height: 300px;
+    border: 2px solid #FF6652;
+}
+.playlist-div{
+    margin: 15px 0 0 0;
+    overflow:scroll
+}
+.playlist-item{
+    display:flex;
+    width: 80%;
+    height:75px;
+    background-color: white;
+    border-radius: 10px;
+    margin:15px auto;
+}
+.video-details{
+    display:flex;
+    flex-direction: column;
+    margin: 11px 0 0 9px;
+}
+.video-title{
+    font-size:20px;
+    font-weight:600;
+    margin-left:7%;
+}
+.course-thumbnail{
+    width:100px;
+    height:70px;
+    margin: 2px 0 0 2px;
+}
+.course-playlist-name{
+    font-size:17px;
+    font-weight: bold;
+}
+.course-time{
+    color:#FF6652
+}
+.course-playlist-title{
+    font-weight: 600;
+    font-size:17px;
+    margin-left:68px;
+
+}
+
+.who-details{
+    margin-top:50px;
+}
+.course-details-title,
+.who-details-title{
+    color: #0A033C;
+    font-weight:600;
+    font-size: 24px;
+}
+
+.course-data{
+    margin:40px 80px;
+    display:flex;
+}
+
+.details-data{
+    font-size: 16px;
+    color: #5D5A6F;
+
+}
+
+.column-1{
+    width:60%;
+    margin-right:15%;
+}
+
+.column-2{
+    width:20%;
+}
+
+.course-mini-data{
+    display: flex;
+    justify-content:space-between;
+    background-color:#fff;
+    padding:30px 20px 20px 20px;
+    border-radius: 6px;
+    font-size:18px;
+}
+.key p,
+.value p{
+    margin-top:10px;
+}
+.key{
+    color:#5D5A6F;
+
+}
+.value{
+    color:#000;
+    font-weight: 600;
+    text-align: right;
+}
+.enroll-button{
+    background-color: #9C4DF4!important;
+    color:white!important;
+    width:100%;
+    margin-top:20px;
+}
+
+.recc-title{
+    color: #0A033C;
+    font-weight:600;
+    font-size: 24px;
+}
+
+.recommended-courses{
+    margin:40px 80px;
+
+}
+
+.rec-courses{
+    margin: 20px 0;
+    width:60%;
+    display:grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-row: auto auto;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+.box{
+    padding: 10px;
+    width:400px;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    font-size: 40px;
+    font-family: sans-serif;
+  }
+
+  .rec-course-img{
+    width:60px;
+    height:60px;
+  }
+
+  .rec-title{
+    font-size:16px;
+    margin-bottom:5px;
+  }
+  .rec-course-data{
+    margin-left: 10px;
+  }
+  .rec-expert,.rec-category{
+    font-size:15px;
+    margin:0;
+    color:black
+  }
+
+.icon-turnin{
+    margin-left:110px;
+    margin-top:50px;
+    background-color:#F8F2FF;
+    color:#9C4DF4;
+    border-radius:6px;
+}
