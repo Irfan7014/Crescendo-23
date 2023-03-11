@@ -24,6 +24,10 @@ async def get_user_service(db, email):
     user = await db["users"].find_one({"email": email})
     return user
 
+async def get_user_by_id_service(db, user_id):
+    user = await db["users"].find_one({"_id": user_id})
+    return user
+
 async def get_all_users_service(db):
     users = await db["users"].find().to_list(1000)
     return users

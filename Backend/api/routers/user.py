@@ -12,7 +12,7 @@ from api.db.db_config import db, s3
 from api.models.user import UserActivityModel, UserModel, UserTypeEnum
 from api.models.user import UserRegisterModel, CurrentUser
 from api.services.auth import authHandler
-from api.services.user import create_aadhar_service, send_otp_service, store_document, validate_aadhar_service, update_user_service, get_all_users_service, create_user_service, get_user_service, verify_otp_service, verify_user_service
+from api.services.user import create_aadhar_service, get_user_by_id_service, send_otp_service, store_document, validate_aadhar_service, update_user_service, get_all_users_service, create_user_service, get_user_service, verify_otp_service, verify_user_service
 import json
 
 user = APIRouter()
@@ -123,6 +123,11 @@ async def get_all_users(db= Depends(get_db), current_user: CurrentUser = Depends
         users = await get_all_users_service(db)
         return users
     return 'Not Admin'
+
+@user.get('/getUserById')
+async def get_all_users(user_id: str = Query(...), db= Depends(get_db), current_user: CurrentUser = Depends(get_current_user)):
+    user = await get_user_by_id_service(db, user_id)
+    return user
 
 @user.patch('/updateUser')
 async def update_user(

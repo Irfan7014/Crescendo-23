@@ -47,6 +47,10 @@ async def get_content_service(db, type):
     content = await db["content"].find({"type": type}).to_list(1000)
     return content
 
+async def get_content_by_title_service(db, title):
+    content = await db["content"].find( { "$text": { "$search": title } } ).to_list(1000)
+    return content
+
 async def get_application_by_id_service(db, id):
     application = await db["content"].find_one({"_id": id})
     return application

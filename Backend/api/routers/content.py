@@ -11,7 +11,7 @@ from datetime import date, datetime, timedelta
 
 from api.db.db_config import db, s3
 from api.models.content import ContentModel, ContentTypeEnum
-from api.services.content import create_content_service, get_all_content_service, get_content_service, store_document, store_documents
+from api.services.content import create_content_service, get_all_content_service, get_content_by_title_service, get_content_service, store_document, store_documents
 from api.services.ocr import get_ocr_doc
 
 from api.services.user import create_user_service
@@ -88,13 +88,22 @@ async def get_all_content(
     content = await get_all_content_service(db)
     return content
 
-@content.post('/getContent')
+@content.get('/getContent')
 async def get_all_content(
         type: int = Query(...),
         db = Depends(get_db),
         s3 = Depends(get_s3)
     ):
     content = await get_content_service(db, type)
+    return content
+
+@content.get('/getContentByTitle')
+async def get_all_content(
+        title: str = Query(...),
+        db = Depends(get_db),
+        s3 = Depends(get_s3)
+    ):
+    content = await get_content_by_title_service(db, title)
     return content
 
 # @content.post('/changeStatus/{id}')
