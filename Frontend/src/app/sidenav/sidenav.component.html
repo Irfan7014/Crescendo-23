@@ -1,0 +1,38 @@
+<!-- <div class="profile-img-div">
+  <div class="name">{{ userName }}</div>
+</div> -->
+<div class="sidenav-content">
+    <mat-list class="nav-list">
+        <mat-list-item class="nav-list-item" *ngFor="let item of clerkSidenavItems" [routerLink]="[item.link]">
+          <img class="common-icon-style" [src]=this.domSanitizer.bypassSecurityTrustUrl(item.icon) alt={{item.alt}}/>{{item.name}}
+          <mat-divider></mat-divider>
+        </mat-list-item>
+        <mat-list-item class="nav-list-item" (click)="logout()">
+            <img class="common-icon-style logout-icon" src="../assets/images/logout.png" alt="Logout Code"/>Logout
+          </mat-list-item>
+    </mat-list>
+</div>
+<div class="sidenav-content">
+    <mat-list class="nav-list">
+        <mat-divider></mat-divider>
+        <mat-list-item class="nav-list-item" *ngFor="let item of studentSidenavItems" [routerLink]="[item.link]">
+          <img class="common-icon-style" [src]=this.domSanitizer.bypassSecurityTrustUrl(item.icon) alt={{item.alt}}/>{{item.name}}
+          <mat-divider></mat-divider>
+        </mat-list-item>
+        <mat-list-item class="nav-list-item" (click)="logout()">
+            <img class="common-icon-style logout-icon" src="../assets/images/logout.png" alt="Logout Code"/>Logout
+          </mat-list-item>
+    </mat-list>
+</div>
+<div class="sidenav-content">
+  <mat-list class="nav-list">
+      <mat-divider></mat-divider>
+      <mat-list-item class="nav-list-item" *ngFor="let item of approvedStudentSidenavItems" [routerLink]="[item.link]">
+        <img class="common-icon-style" [src]=this.domSanitizer.bypassSecurityTrustUrl(item.icon) alt={{item.alt}}/>{{item.name}}
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      <mat-list-item class="nav-list-item" (click)="logout()">
+          <img class="common-icon-style logout-icon" src="../assets/images/logout.png" alt="Logout Code"/>Logout
+        </mat-list-item>
+  </mat-list>
+</div>

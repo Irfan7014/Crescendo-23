@@ -1,12 +1,11 @@
 <div class="course-playlist-component">
     <div class="course-start-div">
-        <video id="playing-video" class="video-js vjs-default-skin" width="640px" height="267px" controls preload="none"
-                poster='http://video-js.zencoder.com/oceans-clip.jpg'
+        <video #videoo autoplay [muted] = "true" id="playing-video" class="video-js vjs-default-skin" width="640px" height="267px" controls preload="none"
+                poster={{video.thumbnail}}
                 data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
-                <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4' />
-                <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm' />
+                <source src="{{this.link}}" type='video/mp4'/>
         </video>
-        <p class="video-title">Maths - for Standard 3 Students | Episode 2</p>
+        <p class="video-title">{{this.video.title}}</p>
     </div>
     <div class="course-data">
         <div class="column-1">
@@ -20,7 +19,6 @@
             <div class="course-mini-data">
                 <div class="key">
                     <p>Expert</p>
-                    <p>Lessons</p>
                     <p>Quizzes</p>
                     <p>Language</p>
                     <p>Category</p>
@@ -28,10 +26,9 @@
                 </div>
                 <div class="value">
                     <p>{{this.expert}}</p>
-                    <p>{{this.lessonCount}}</p>
                     <p>{{this.quizCount}}</p>
-                    <p>{{this.courseLanguage}}</p>
-                    <p>{{this.courseCategory}}</p>
+                    <p>English</p>
+                    <p>{{this.video.category}}</p>
                     <p>Lifetime</p>
                 </div>
             </div>

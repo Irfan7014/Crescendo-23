@@ -6,7 +6,12 @@ import { LoginComponent } from './Registrations/login/login.component';
 import { RegisterComponent } from './Registrations/register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { OtpComponent } from './Registrations/otp/otp.component';
+import { HomepageComponent } from './homepage/homepage.component';
 const routes: Routes = [
+  {
+    path: '',
+    component: HomepageComponent,
+  },
   {
     path: 'expert',
     loadChildren: () => ExpertModule,
