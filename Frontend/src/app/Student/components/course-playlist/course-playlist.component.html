@@ -1,0 +1,73 @@
+<div class="course-playlist-component">
+    <div class="course-start-div">
+        <div class="video-div">
+            <video id="playing-video" class="video-js vjs-default-skin" width="640px" height="267px" controls preload="none"
+                poster='http://video-js.zencoder.com/oceans-clip.jpg'
+                data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
+                <source src="https://vjs.zencdn.net/v/oceans.mp4" type='video/mp4' />
+                <source src="https://vjs.zencdn.net/v/oceans.webm" type='video/webm' />
+            </video>
+            <p class="video-title">Maths - for Standard 3 Students | Episode 2</p>
+        </div>
+        <div class="playlist-div">
+            <p class="course-playlist-title">Course Playlist</p>
+            <div class="playlist-item" *ngFor="let item of playlist">
+                <img class="course-thumbnail" [src]="item.img" alt="Course Thumbnail"/>
+                <div class="video-details">
+                    <p class="course-playlist-name">{{item.title}}</p>
+                    <p class="course-time">{{item.time}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="course-data">
+        <div class="column-1">
+            <div class="course-details">
+                <p class="course-details-title">Course Details</p>
+                <p class="details-data">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis consectetur adipiscing elit.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis consectetur adipiscing elit.</p>
+            </div>
+            <div class="who-details">
+                <p class="who-details-title">Who this course is for</p>
+                <p class="details-data">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis consectetur adipiscing elit.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="column-2">
+            <div class="course-mini-data">
+                <div class="key">
+                    <p>Expert</p>
+                    <p>Lessons</p>
+                    <p>Quizzes</p>
+                    <p>Language</p>
+                    <p>Category</p>
+                    <p>Access</p>
+                </div>
+                <div class="value">
+                    <p>{{this.expert}}</p>
+                    <p>{{this.lessonCount}}</p>
+                    <p>{{this.quizCount}}</p>
+                    <p>{{this.courseLanguage}}</p>
+                    <p>{{this.courseCategory}}</p>
+                    <p>Lifetime</p>
+                </div>
+            </div>
+            <button mat-raised-button class="enroll-button">ENROL</button>
+        </div>
+    </div>
+
+    <div class="recommended-courses">
+        <p class="recc-title">Recommended Courses</p>
+        <div class="rec-courses">
+            <div class="box" *ngFor="let rec of recCourses">
+                <img class="rec-course-img" src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2020/04/01170800/Free-Online-Courses-with-Certificates.jpg" alt="Recommended Course"/>
+                <div class="rec-course-data">
+                    <p class="rec-title">{{rec.title}}</p>
+                    <p class="rec-expert">Expert: <b>{{rec.expert}}</b></p>
+                    <p class="rec-category">Category: <b>{{rec.category}}</b></p>
+                </div>
+                <mat-icon class="icon-turnin">turned_in_not</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>

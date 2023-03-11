@@ -1,0 +1,17 @@
+twilio==7.12.1
+pydantic==1.9.0
+requests==2.25.1
+cryptography==3.4.7
+Django==3.2.2
+boto3==1.24.56
+fastapi==0.79.1
+python-jose==3.3.0
+motor==3.0.0
+passlib==1.7.4
+Pillow==9.2.0
+pymongo==4.2.0
+qrcode==7.3.1
+dnspython==2.1.0
+python-multipart==0.0.5
+uvicorn[standard]==0.18.1
+sqlalchemy==1.4.40
