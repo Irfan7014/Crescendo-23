@@ -4,6 +4,7 @@ import { StudentModule } from './Student/student.module';
 import { ExpertModule } from './Expert/expert.module';
 import { LoginComponent } from './Registrations/login/login.component';
 import { RegisterComponent } from './Registrations/register/register.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 const routes: Routes = [
   {
     path: 'expert',
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path:'register',
     component: RegisterComponent
+  },
+  {
+    path:'landingpage',
+    component: LandingPageComponent
   }
 ];
 
