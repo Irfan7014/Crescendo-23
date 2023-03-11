@@ -131,6 +131,7 @@ async def get_all_users(user_id: str = Query(...), db= Depends(get_db), current_
 
 @user.patch('/updateUser')
 async def update_user(
+        favs: Optional[List[str]] = Query(None),
         password: Optional[str] = Query(None),
         email: Optional[str] = Query(None),
         content_viewed: str = Query(None),
@@ -144,7 +145,9 @@ async def update_user(
     if password is not None:
         user['password'] = password
     if email is not None:
-        user['email'] = email    
+        user['email'] = email   
+    if favs is not None: 
+        user['favs'] = favs[0].split(",")
 
     existing_user = await get_user_service(db, current_user.username)
     content=existing_user['activity']['content_viewed']
