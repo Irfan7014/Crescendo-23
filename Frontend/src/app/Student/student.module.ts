@@ -21,15 +21,22 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CoursePlaylistComponent } from './components/course-playlist/course-playlist.component';
+
 const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
   },
+  {
+    path:'course-playlist',
+    component: CoursePlaylistComponent
+  }
 ];
 @NgModule({
   entryComponents:[ProfileComponent],
   declarations: [
+    CoursePlaylistComponent
   ],
   imports: [
     CommonModule,
