@@ -140,14 +140,14 @@ async def update_user(
         db = Depends(get_db),
         current_user: CurrentUser = Depends(get_current_user)
     ):
-        
+    print(favs)
     user = {}
     if password is not None:
         user['password'] = password
     if email is not None:
         user['email'] = email   
     if favs is not None: 
-        user['favs'] = favs[0].split(",")
+        user['favs'] = favs
 
     existing_user = await get_user_service(db, current_user.username)
     content=existing_user['activity']['content_viewed']
