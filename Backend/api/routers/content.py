@@ -11,7 +11,7 @@ from datetime import date, datetime, timedelta
 
 from api.db.db_config import db, s3
 from api.models.content import ContentModel, ContentTypeEnum, CourseModel
-from api.services.content import create_content_service, create_course_service, get_all_content_service, get_content_by_title_service, get_content_service, get_content_type_category_service, get_course_by_category_service, get_course_by_id_service, get_courses_service, jaccard_similarity, store_document, store_documents
+from api.services.content import create_content_service, create_course_service, get_all_content_service, get_content_by_category_service, get_content_by_title_service, get_content_service, get_content_type_category_service, get_course_by_category_service, get_course_by_id_service, get_courses_service, jaccard_similarity, store_document, store_documents
 from api.services.ocr import get_ocr_doc
 
 from api.services.user import create_user_service
@@ -113,7 +113,7 @@ async def get_content_by_category(
         db = Depends(get_db),
         s3 = Depends(get_s3)
     ):
-    content = await get_course_by_category_service(db, category)
+    content = await get_content_by_category_service(db, category)
     return content
 
 @content.get('/getContentByTitle')
@@ -151,6 +151,15 @@ async def get_course_by_id(
         s3 = Depends(get_s3)
     ):
     ret_content = await get_course_by_id_service(db, course_id)
+    return ret_content
+
+@content.get('/getCourseByCategory')
+async def get_course_by_category(
+        category: str = Query(...),
+        db = Depends(get_db),
+        s3 = Depends(get_s3)
+    ):
+    ret_content = await get_course_by_category_service(db, category)
     return ret_content
 
 @content.get('/getRecommendationByTitle')
