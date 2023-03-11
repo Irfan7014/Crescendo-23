@@ -5,6 +5,7 @@ import { ExpertModule } from './Expert/expert.module';
 import { LoginComponent } from './Registrations/login/login.component';
 import { RegisterComponent } from './Registrations/register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { OtpComponent } from './Registrations/otp/otp.component';
 const routes: Routes = [
   {
     path: 'expert',
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path:'landingpage',
     component: LandingPageComponent
+  },
+  {
+    path:'otp',
+    component:OtpComponent
   }
 ];
 
