@@ -1,10 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { StudentModule } from './Student/student.module';
+import { ExpertModule } from './Expert/expert.module';
+import { LoginComponent } from './Registrations/login/login.component';
+const routes: Routes = [
+  {
+    path: 'expert',
+    loadChildren: () => ExpertModule,
+  },
+  {
+    path: 'student',
+    loadChildren: () => StudentModule,
+  },
+  {
+    path:'login',
+    component: LoginComponent
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes), RouterModule.forRoot(routes, {useHash: true})],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }
