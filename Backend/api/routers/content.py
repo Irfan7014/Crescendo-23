@@ -11,7 +11,7 @@ from datetime import date, datetime, timedelta
 
 from api.db.db_config import db, s3
 from api.models.content import ContentModel, ContentTypeEnum, CourseModel
-from api.services.content import create_content_service, create_course_service, get_all_content_service, get_content_by_title_service, get_content_service, get_content_type_category_service, get_course_by_category_service, get_course_by_id_service, get_courses_service, store_document, store_documents
+from api.services.content import create_content_service, create_course_service, get_all_content_service, get_content_by_title_service, get_content_service, get_content_type_category_service, get_course_by_category_service, get_course_by_id_service, get_courses_service, jaccard_similarity, store_document, store_documents
 from api.services.ocr import get_ocr_doc
 
 from api.services.user import create_user_service
@@ -152,6 +152,38 @@ async def get_course_by_id(
     ):
     ret_content = await get_course_by_id_service(db, course_id)
     return ret_content
+
+@content.get('/getRecommendationByTitle')
+async def getRecommendation(
+        title: str = Query(...),
+        db = Depends(get_db),
+        s3 = Depends(get_s3)
+    ):
+    content_1 = await get_content_by_title_service(db, title)
+    content_2 = await get_content_service(db, 1)
+    
+    my_list_1 = content_1[0]['keywords']
+    my_final_list = {}
+
+    for index in enumerate(content_2):
+        print(my_list_1)
+        print(index[0])
+        my_list_2 = content_2[index[0]]['keywords']
+        my_string = content_2[index[0]]['title']
+        tokens = my_string.split()
+        print(tokens)
+        print(type(tokens))
+        my_list_2.extend(content_2[index[0]]['title'].split())
+        my_list_2.extend(content_2[index[0]]['description'].split())
+        similarity = jaccard_similarity(set(my_list_1), set(my_list_2))
+        
+        print(f"The Jaccard similarity between {content_1[0]['title']} and {content_2[index[0]]['title']} based on their tags is {similarity:.2f}")
+        # print(content_2[index]['title'])
+        my_final_list[similarity] = content_2[index[0]]['title']
+        
+    sorted_dict = dict(sorted(my_final_list.items()))
+    print(sorted_dict)
+    return sorted_dict
 
 # @content.post('/changeStatus/{id}')
 # async def change_application_status(

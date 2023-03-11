@@ -77,6 +77,11 @@ async def get_content_type_category_service(db, type, category):
         }).to_list(1000)
     return courses
 
+def jaccard_similarity(set1, set2):
+    intersection = set1.intersection(set2)
+    union = set1.union(set2)
+    return len(intersection) / len(union)
+    
 async def get_application_by_id_service(db, id):
     application = await db["content"].find_one({"_id": id})
     return application
