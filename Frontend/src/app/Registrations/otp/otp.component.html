@@ -1,0 +1,26 @@
+<!-- <app-header></app-header> -->
+<div id="otp-container" class="bigger-padding">
+  <div class="wrapperotp">
+    <div class="dialogboxotp">
+      <h1 class="headingotp">
+        Please enter the 6-digit verification code we sent via SMS:
+      </h1>
+      <span class="subheadingotp"
+        >(we want to make sure it's you)</span
+      >
+      <div class="formotp">
+        <ngx-otp-input
+          [config]="otpInputConfig"
+          (otpChange)="handeOtpChange($event)"
+          (fill)="handleFillEvent($event)"
+        >
+        </ngx-otp-input>
+        <button mat-flat-button class="buttonotp" (click)="verifyOtpService()">Verify</button>
+        <div>
+          Didn't receive the code?<br />
+          <button mat-stroked-button class="resendotp"(click)="verifyOtpService()">Send code again</button><br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

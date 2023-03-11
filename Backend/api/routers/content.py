@@ -80,7 +80,7 @@ async def upload(
     created_content = await create_content_service(db, content)
     return created_content
 
-@content.post('/getAllContent')
+@content.get('/getAllContent')
 async def get_all_content(
         db = Depends(get_db),
         s3 = Depends(get_s3)
