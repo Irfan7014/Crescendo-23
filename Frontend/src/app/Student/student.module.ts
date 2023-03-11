@@ -22,6 +22,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CoursePlaylistComponent } from './components/course-playlist/course-playlist.component';
+import { VideoComponent } from './components/video/video.component';
 
 const routes: Routes = [
   {
@@ -31,12 +32,17 @@ const routes: Routes = [
   {
     path:'course-playlist',
     component: CoursePlaylistComponent
+  },
+  {
+    path:'video',
+    component:VideoComponent
   }
 ];
 @NgModule({
   entryComponents:[ProfileComponent],
   declarations: [
-    CoursePlaylistComponent
+    CoursePlaylistComponent,
+    VideoComponent
   ],
   imports: [
     CommonModule,

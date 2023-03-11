@@ -1,0 +1,68 @@
+#otp-container{
+    display:flex;
+    justify-content:center;
+    margin-top: 30px;
+  }
+  .wrapperotp {
+    text-align: center;
+  }
+  .bigger-padding{
+    padding:4.5%;
+  }
+  .dialogboxotp {
+    margin: 10px auto;
+    padding: 20px 30px;
+    display: inline-block;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    max-width: 900px;
+    text-align: center;
+  }
+  
+  .headingotp {
+    margin: 0 0 10px;
+    padding: 0;
+    line-height: 1.25;
+    text-align: center;
+    color: #333;
+    font-size: 30px;
+    font-weight: bold !important;
+  }
+  
+  .subheadingotp {
+    font-size: 18px;
+    text-align: center !important;
+    margin: 0 40px;
+  }
+  
+  :host ::ng-deep .ngx-otp-input[_ngcontent-clb-c49] {
+    width: 38px !important;
+    height: 42px !important;
+  }
+  
+  .formotp {
+    max-width: 260px;
+    margin: 25px auto 0;
+  }
+  
+  .buttonotp {
+    margin: 20px auto 10px auto;
+    height: 50px;
+    width:220px;
+    border-radius: 7px;
+    background-color: #3f4d98;
+    color: #fff;
+  }
+  
+  .resendotp {
+    border-color: #FFAB00;
+    color: #fff;
+    background-color: #FFAB00;
+    opacity: 0.4;
+    height: 50px;
+    width: 220px;
+    border-radius: 7px;
+    margin: 10px auto 10px auto;
+    font-size: 17px;
+  }

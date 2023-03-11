@@ -12,21 +12,26 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-
+import { OtpComponent } from './Registrations/otp/otp.component';
+import { NgxOtpInputModule } from 'ngx-otp-input';
+import {MatSnackBarModule} from '@angular/material/snack-bar'
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
     LandingPageComponent,
-    SafePipe
+    SafePipe,
+    OtpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     MatIconModule,
+    NgxOtpInputModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
     TranslateModule.forRoot({
       loader:{
         provide: TranslateLoader,
