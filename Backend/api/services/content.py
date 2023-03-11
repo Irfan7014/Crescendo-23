@@ -65,11 +65,11 @@ async def get_course_by_id_service(db, course_id):
     return courses
 
 async def get_course_by_category_service(db, category):
-    courses = await db["courses"].find_one({"category": category})
+    courses = await db["courses"].find({"category": category}).to_list(1000)
     return courses
 
 async def get_content_by_category_service(db, category):
-    courses = await db["content"].find_one({"category": category})
+    courses = await db["content"].find({"category": category}).to_list(1000)
     return courses
 
 async def get_content_type_category_service(db, type, category):
