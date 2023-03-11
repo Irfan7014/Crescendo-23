@@ -114,7 +114,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db = Depends(g
 
 @user.get('/getUser')
 async def get_user(db= Depends(get_db), current_user: CurrentUser = Depends(get_current_user)):
-    user = await get_user_service(db, current_user.aadhar)
+    user = await get_user_service(db, current_user.username)
     return user
 
 @user.get('/getAllUser')
