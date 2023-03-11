@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -64,6 +64,7 @@ const routes: Routes = [
     MatTabsModule,
     MatDialogModule,
     MatAutocompleteModule,
+    HttpClientModule,
   ],
   exports: [],
   providers: [DatePipe],

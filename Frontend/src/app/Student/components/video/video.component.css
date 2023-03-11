@@ -35,7 +35,7 @@
 .video-title{
     font-size: 25px;
     font-weight: 600;
-    margin: 15px 0 10px 320px;
+    text-align: center;
 }
 .course-thumbnail{
     width:100px;
@@ -96,7 +96,7 @@
 }
 .key p,
 .value p{
-    margin-top:10px;
+    margin-top:20px;
 }
 .key{
     color:#5D5A6F;

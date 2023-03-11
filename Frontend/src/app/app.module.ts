@@ -17,6 +17,8 @@ import { NgxOtpInputModule } from 'ngx-otp-input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HomepageComponent } from './homepage/homepage.component';
 import {MatButtonModule} from '@angular/material/button';
+import { SidenavComponent } from './sidenav/sidenav.component'
+import {MatListModule} from '@angular/material/list'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import {MatButtonModule} from '@angular/material/button';
     LandingPageComponent,
     SafePipe,
     OtpComponent,
-    HomepageComponent
+    HomepageComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,8 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     MatSnackBarModule,
     MatButtonModule,
+    MatListModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader:{
         provide: TranslateLoader,

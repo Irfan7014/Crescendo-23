@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +13,7 @@ export class LoginComponent {
   password:string = ''
   hidePassword:boolean = true;
   isValidPassword:boolean = false;
+  constructor(private _auth:AuthService,private route:Router){}
   checkLoginDetails(){
 
   }
@@ -32,6 +35,10 @@ export class LoginComponent {
   }
 
   login(){
-    
+    this._auth.login(this.email, this.password).subscribe((res:any)=>{
+      console.log(res);
+      localStorage.setItem('access_token','Bearer '+res.body.access_token);
+      this.route.navigate(['/student/video']);
+    },(err:Error)=>{})
   }
 }
