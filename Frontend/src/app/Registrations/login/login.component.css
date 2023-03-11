@@ -1,0 +1,123 @@
+.login-form{
+    margin:2% 27%;
+}
+
+.login-page{
+    width: 50%;
+    margin:6% auto;
+    text-align: center;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 25px;
+}
+
+.title-para{
+    font-size: 18px;
+    width: 46%;
+    text-align: center;
+    margin: auto;
+}
+
+.password-input-div{
+    display:inline-block;
+    position:relative;
+    width:100%;
+}
+
+.password-input,
+.email-input{
+    font-size: 20px;
+    border: 1px #000 solid;
+    padding: 12px;
+    height: 55px !important;
+    color: black;
+    display: block;
+    width: 100%;
+    background-color: #eaeaea;
+}
+.email-div{
+    margin-bottom: 12px;
+}
+
+.label{
+    font-size:15px;
+    font-family:'Roboto', 'sans-serif';
+    font-weight: 500;
+    display:block;
+    text-align: left;
+}
+
+.login-button{
+    color: #ffffff;
+    background-color: #0055D0;
+    border-radius: 7px;
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+    margin: 30px auto 0;
+    display: block;
+    border:none;
+}
+
+.visibility-icon,
+.visibility-icon-2{
+    right: 3%;
+    position: absolute;
+    top: 40%;
+}
+
+#links {
+    padding: 0 0 1rem;
+    /* border-bottom: 1px solid #cfd8dc; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 1rem;
+    font-size: 16px;
+  }
+  
+  #links > a {
+    text-decoration: underline;
+    color: #0055D0;
+  }
+  
+  #social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 10px;
+  }
+  
+  #social > i {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #0055D0;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+  }
+  
+  #social > i:hover{
+      background-color: #fff;
+      color: #0055D0;
+  }
+  
+  .login-info{
+    margin-top: 20px;
+      font-size: 15px;
+      display: block;
+      margin-bottom: 10px;
+  }
+  
+  .login-info > a{
+      text-decoration: underline;
+      cursor: pointer;
+  }
+  

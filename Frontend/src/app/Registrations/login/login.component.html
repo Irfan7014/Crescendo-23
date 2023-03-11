@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="login-page">
+    <h3 class="title">Welcome Back</h3>
+    <div class="login-form">
+        <div class="email-div">
+            <h4 class="label">EMAIL</h4>
+            <input type="text" class="input-basic email-input" placeholder="johndoe@email.com" name="email" [(ngModel)]="this.email" required (ngModelChange)="checkLoginDetails()">
+        </div>
+        <div class="password-div">
+            <h4 class="label">PASSWORD</h4>
+            <div class="password-input-div">
+                <input placeholder="Enter Password" [type]="hidePassword ? 'password' : 'text'" class="password-input" [(ngModel)]="this.password" (ngModelChange)="onPasswordValidation()" (keyup.enter)="login()">
+                <mat-icon matTooltip="Invalid Password (It must contain a special character, 1 number, 1 uppercase and 1 lowercase character)" matSuffix class="visibility-icon" [ngStyle]="{ color: isValidPassword ? 'green' : 'crimson' }" (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </div>
+        </div>
+        <button mat-flat-button class="login-button" (click)="login()">LOGIN</button>
+        <div id="links">
+            <a href="#">Forgot password?</a>
+            <a href="#">New here? Sign up!</a>
+        </div>
+        <div class="title-para">OR</div>
+        <div id="social">
+          <i class="fa-brands fa-google"></i>
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-apple"></i>
+        </div>
+        <hr>
+        <div class="login-info">
+            Having trouble logging in? <a>Learner help center</a>
+        </div>
+        <div class="login-info">
+            This site is protected by reCAPTCHA Enterprise and the Google <a>Privacy Policy</a> and <a>Terms of Service</a> apply.
+        </div>
+      </div>
+  </div>
+  
