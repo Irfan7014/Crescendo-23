@@ -19,9 +19,10 @@ class ContentModel(BaseModel):
     link : str = Field(...)
     keywords : List[str] = Field(...)
     title : str = Field(...)
-    expert_id : PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    uploader : PyObjectId = Field(...)
+    type : ContentTypeEnum = Field(...)
     category : str = Field(...)
-    thumbnail: str = Field(...)
+    thumbnail: Optional[str] = Field(...)
     comment : Optional[str] = Field(...)
 
     class Config:

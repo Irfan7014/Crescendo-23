@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from api.routers.user import user
+from api.routers.content import content
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(openapi_url="/api/v1/openapi.json", docs_url="/api/v1/docs")
@@ -26,3 +27,4 @@ app.add_middleware(
 )
 
 app.include_router(user, prefix='/api/v1', tags=['user'])
+app.include_router(content, prefix='/api/v1', tags=['content'])
