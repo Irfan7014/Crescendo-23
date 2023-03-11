@@ -1,1 +1,22 @@
-<p>register works!</p>
+<div class="signup-page">
+    <h3 class="title">Sign Up</h3>
+    <p class="title-para">Learn at your own pace from top teachers and subject experts.</p>
+    <div class="signup-form">
+        <div class="name-div">
+            <h4 class="label">FULL NAME</h4>
+            <input type="text" class="input-basic fullname-input" placeholder="John Doe" name="fullName" [(ngModel)]="this.fullName" required (ngModelChange)="checkRegisterDetails()">
+        </div>
+        <div class="email-div">
+            <h4 class="label">EMAIL</h4>
+            <input type="text" class="input-basic email-input" placeholder="johndoe@email.com" name="email" [(ngModel)]="this.email" required (ngModelChange)="checkRegisterDetails()">
+        </div>
+        <div class="password-div">
+            <h4 class="label">PASSWORD</h4>
+            <div class="password-input-div">
+                <input placeholder="Enter Password" [type]="hidePassword ? 'password' : 'text'" class="password-input" [(ngModel)]="this.password" (ngModelChange)="onPasswordValidation()" (keyup.enter)="register()">
+                <mat-icon matTooltip="Invalid Password (It must contain a special character, 1 number, 1 uppercase and 1 lowercase character)" matSuffix class="visibility-icon" [ngStyle]="{ color: isValidPassword ? 'green' : 'crimson' }" (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </div>
+        </div>
+        <button mat-flat-button class="register-button" (click)="register()">LOGIN</button>
+    </div>
+</div>
