@@ -1,6 +1,8 @@
+<app-header (toggledSideNav)="isToggled = $event" *ngIf="isAuthenticatedUser"></app-header>
 <div class="justify-content-center" id="loading-div" oncontextmenu="return false;">
   <span class="sr-only" id="loading"></span>
 </div>
-<div>
+<app-sidenav [toggleSideNav]="isToggled" *ngIf="isAuthenticatedUser && isToggled" [@enterAnimation]></app-sidenav>
+<div [ngClass]="setRouterStyle()">
   <router-outlet></router-outlet>
 </div>

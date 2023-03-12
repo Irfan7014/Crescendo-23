@@ -23,8 +23,27 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CoursePlaylistComponent } from './components/course-playlist/course-playlist.component';
 import { VideoComponent } from './components/video/video.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { DiscussionForumComponent } from './components/discussion-forum/discussion-forum.component';
+import { DiscussionPageComponent } from './components/discussion-forum/discussion-page/discussion-page.component';
+import { HomepageComponent } from '../homepage/homepage.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { ContentPageComponent } from '../content-page/content-page.component';
+import { AllSubjectsComponent } from '../all-subjects/all-subjects.component';
 
 const routes: Routes = [
+  {
+    path: 'discussionpage',
+    component: DiscussionPageComponent,
+  },
+  {
+    path: 'discussionforum',
+    component: DiscussionForumComponent,
+  },
+  {
+    path: 'quiz',
+    component: QuizComponent,
+  },
   {
     path: 'profile',
     component: ProfileComponent,
@@ -36,16 +55,35 @@ const routes: Routes = [
   {
     path:'video',
     component:VideoComponent
-  }
+  },
+  {
+    path:'subject-content',
+    component:HomepageComponent
+  },
+  {
+    path:'content-page',
+    component:ContentPageComponent
+  },
+  {
+    path:'all-subjects',
+    component:AllSubjectsComponent
+  },
 ];
 @NgModule({
   entryComponents:[ProfileComponent],
   declarations: [
     CoursePlaylistComponent,
-    VideoComponent
+    VideoComponent,
+    QuizComponent,
+    AllSubjectsComponent,
+    ContentPageComponent,
+    HomepageComponent,
+    DiscussionForumComponent,
+    DiscussionPageComponent
   ],
   imports: [
     CommonModule,
+    MatChipsModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     FormsModule,
@@ -62,6 +100,7 @@ const routes: Routes = [
     MatDividerModule,
     MatCheckboxModule,
     MatTabsModule,
+    MatChipsModule,
     MatDialogModule,
     MatAutocompleteModule,
     HttpClientModule,

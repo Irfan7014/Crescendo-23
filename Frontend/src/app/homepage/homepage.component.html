@@ -1,71 +1,21 @@
 <section class="homepage-cards">
-    <div class="typesofcontent">
-      <div class="button-types">
-        <button mat-raised-button color="primary" (click)="setCourses()">Courses</button>
-        <button mat-raised-button color="primary" (click)="setBooks()">Books</button>
-        <button mat-raised-button color="primary" (click)="setBlogs()">Blogs</button>
-        <button mat-raised-button color="primary" (click)="setVideos()">Videos</button>
+  <div class="typesofsubjects">
+
+    <div class="cards">
+      <div class="card" *ngFor="let details of subjectDetails">
+        <img src="{{details.image}}" alt="{{details.subject}}"/>
+        <div class="card-content">
+          <h2>{{ details.subject }}</h2>
+          <p>{{ details.info }}</p>
+        </div>
+        <mat-chip-listbox aria-label="subsections" >
+          <mat-chip *ngFor="let sub of details.subsections" (click)="chipClicked(details.subject)">{{sub}}</mat-chip>
+        </mat-chip-listbox>
       </div>
-      <div class="cards" *ngIf="courseFlag">
-        <div class="card" *ngFor="let details of courseDetails">
-          <picture class="thumbnail">
-            <img class="category__01" src="{{ details.img }}" alt="" />
-          </picture>
-          <div class="card-content">
-            <p class="category category__01">{{ details.subject }}</p>
-            <h2>{{ details.topic }}</h2>
-            <p>{{ details.info }}</p>
-          </div>
-          <button mat-raised-button color="primary" class="button">
-            Go To Course
-          </button>
-        </div>
-      </div>
-      <div class="cards" *ngIf="bookFlag">
-          <div class="card" *ngFor="let details of bookDetails">
-            <picture class="thumbnail">
-              <img class="category__01" src="{{ details.img }}" alt="" />
-            </picture>
-            <div class="card-content">
-              <p class="category category__01">{{ details.subject }}</p>
-              <h2>{{ details.topic }}</h2>
-              <p>{{ details.info }}</p>
-            </div>
-            <button mat-raised-button color="primary" class="button">
-              Go To Course
-            </button>
-          </div>
-        </div>
-        <div class="cards" *ngIf="blogFlag">
-          <div class="card" *ngFor="let details of blogDetails">
-            <picture class="thumbnail">
-              <img class="category__01" src="{{ details.img }}" alt="" />
-            </picture>
-            <div class="card-content">
-              <p class="category category__01">{{ details.subject }}</p>
-              <h2>{{ details.topic }}</h2>
-              <p>{{ details.info }}</p>
-            </div>
-            <button mat-raised-button color="primary" class="button">
-              Go To Course
-            </button>
-          </div>
-        </div>
-        <div class="cards" *ngIf="videoFlag">
-          <div class="card" *ngFor="let details of videoDetails">
-            <picture class="thumbnail">
-              <img class="category__01" src="{{ details.img }}" alt="" />
-            </picture>
-            <div class="card-content">
-              <p class="category category__01">{{ details.subject }}</p>
-              <h2>{{ details.topic }}</h2>
-              <p>{{ details.info }}</p>
-            </div>
-            <button mat-raised-button color="primary" class="button">
-              Go To Course
-            </button>
-          </div>
-        </div>
     </div>
-  </section>
+
+  </div>
+</section>
+
+<hr>
   
