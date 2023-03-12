@@ -27,4 +27,14 @@ export class AuthService {
   logoutUser() {
     this.authenticatedUser.next(null);
   }
+  getUserDetails(){
+    const headers = new HttpHeaders()
+      .set('accept', 'application/x-www-form-urlencoded')
+      .set('Authorization', localStorage.getItem('access_token') || '');
+    return this.http
+      .get(environment.baseUrl+'getUser', {
+        headers: headers,
+        observe: 'response',
+      })
+  }
 }

@@ -29,10 +29,6 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path:'landingpage',
-    component: LandingPageComponent
-  },
-  {
     path:'otp',
     component:OtpComponent
   }

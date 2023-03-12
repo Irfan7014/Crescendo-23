@@ -1,0 +1,70 @@
+<section class="homepage-cards">
+    <div class="typesofcontent">
+      <div class="button-types">
+        <button mat-raised-button class="course-color" (click)="setCourses()">Courses</button>
+        <button mat-raised-button class="books-color" (click)="setBooks()">Books</button>
+        <button mat-raised-button class="blogs-color" (click)="setBlogs()">Blogs</button>
+        <button mat-raised-button class="videos-color" (click)="setVideos()">Videos</button>
+      </div>
+      <div class="cards" *ngIf="courseFlag">
+        <div class="card" *ngFor="let details of courseDetails">
+          <picture class="thumbnail">
+            <img class="category__01 course-color" src="{{ details.thumbnail }}" alt="" />
+          </picture>
+          <div class="card-content">
+            <p class="category category__01 course-color">{{ details.category }}</p>
+            <h2>{{ details.title }}</h2>
+            <p>{{ details.description }}</p>
+          </div>
+          <button mat-raised-button color="primary" class="button course-color">
+            Go To Course
+          </button>
+        </div>
+      </div>
+      <div class="cards" *ngIf="bookFlag">
+          <div class="card" *ngFor="let details of bookDetails">
+            <picture class="thumbnail">
+              <img class="category__01 books-color" src="{{ details.thumbnail }}" alt="" />
+            </picture>
+            <div class="card-content">
+              <p class="category category__01 books-color">{{ details.category }}</p>
+              <h2>{{ details.title }}</h2>
+              <p>{{ details.description }}</p>
+            </div>
+            <button mat-raised-button color="primary" class="button books-color">
+              Read Book
+            </button>
+          </div>
+        </div>
+        <div class="cards" *ngIf="blogFlag">
+          <div class="card" *ngFor="let details of blogDetails">
+            <picture class="thumbnail">
+              <img class="category__01 blogs-color" src="{{ details.thumbnail }}" alt="" />
+            </picture>
+            <div class="card-content">
+              <p class="category category__01 blogs-color">{{ details.category }}</p>
+              <h2>{{ details.title }}</h2>
+              <p>{{ details.description }}</p>
+            </div>
+            <button mat-raised-button color="primary" class="button blogs-color">
+              Read Blog
+            </button>
+          </div>
+        </div>
+        <div class="cards" *ngIf="videoFlag">
+          <div class="card" *ngFor="let details of videoDetails">
+            <picture class="thumbnail">
+              <img class="category__01 videos-color" src="{{ details.thumbnail }}" alt="" />
+            </picture>
+            <div class="card-content">
+              <p class="category category__01 videos-color">{{ details.category }}</p>
+              <h2>{{ details.title }}</h2>
+              <p>{{ details.description }}</p>
+            </div>
+            <button mat-raised-button color="primary" class="button videos-color">
+              Watch Video
+            </button>
+          </div>
+        </div>
+    </div>
+  </section>

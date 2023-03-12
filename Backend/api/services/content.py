@@ -47,9 +47,48 @@ async def get_content_service(db, type):
     content = await db["content"].find({"type": type}).to_list(1000)
     return content
 
+async def get_content_by_id_service(db, id):
+    content = await db["content"].find_one({"_id": id})
+    return content
+
 async def get_content_by_title_service(db, title):
     content = await db["content"].find( { "$text": { "$search": title } } ).to_list(1000)
     return content
+
+async def create_course_service(db, course):
+    content = await db["courses"].insert_one(course)
+    created_content = await db["courses"].find_one({"_id": content.inserted_id})
+    return created_content
+
+async def get_courses_service(db):
+    courses = await db["courses"].find( ).to_list(1000)
+    return courses
+
+async def get_course_by_id_service(db, course_id):
+    courses = await db["courses"].find_one({"_id": course_id})
+    return courses
+
+async def get_course_by_category_service(db, category):
+    courses = await db["courses"].find({"category": category}).to_list(1000)
+    return courses
+
+async def get_content_by_category_service(db, category):
+    courses = await db["content"].find({"category": category}).to_list(1000)
+    return courses
+
+async def get_content_type_category_service(db, type, category):
+    courses = await db["content"].find({
+            "$and": [
+                {"category": category },
+                {"type": type}
+            ]
+        }).to_list(1000)
+    return courses
+
+def jaccard_similarity(set1, set2):
+    intersection = set1.intersection(set2)
+    union = set1.union(set2)
+    return len(intersection) / len(union)
 
 async def get_application_by_id_service(db, id):
     application = await db["content"].find_one({"_id": id})

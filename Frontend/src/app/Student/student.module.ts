@@ -26,6 +26,10 @@ import { VideoComponent } from './components/video/video.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { DiscussionForumComponent } from './components/discussion-forum/discussion-forum.component';
 import { DiscussionPageComponent } from './components/discussion-forum/discussion-page/discussion-page.component';
+import { HomepageComponent } from '../homepage/homepage.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { ContentPageComponent } from '../content-page/content-page.component';
+import { AllSubjectsComponent } from '../all-subjects/all-subjects.component';
 
 const routes: Routes = [
   {
@@ -51,6 +55,18 @@ const routes: Routes = [
   {
     path:'video',
     component:VideoComponent
+  },
+  {
+    path:'subject-content',
+    component:HomepageComponent
+  },
+  {
+    path:'content-page',
+    component:ContentPageComponent
+  },
+  {
+    path:'all-subjects',
+    component:AllSubjectsComponent
   }
 ];
 @NgModule({
@@ -58,9 +74,7 @@ const routes: Routes = [
   declarations: [
     CoursePlaylistComponent,
     VideoComponent,
-    QuizComponent,
-    DiscussionForumComponent,
-    DiscussionPageComponent
+    QuizComponent
   ],
   imports: [
     CommonModule,
@@ -83,6 +97,7 @@ const routes: Routes = [
     MatDialogModule,
     MatAutocompleteModule,
     HttpClientModule,
+    MatChipsModule,
   ],
   exports: [],
   providers: [DatePipe],
