@@ -1,0 +1,50 @@
+.discussion-container{
+    max-width: 70%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #fff;
+    padding: 20px;
+  }
+
+.box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-body{
+    padding: 20px;
+}
+
+.card-title{
+    font-size: 24px;
+}
+
+.card{
+    margin: 20px;
+}
+.card-text{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 20px;
+}
+
+.btn{
+    margin-right: 5px;
+}
+.question-box{
+    font-size: 20px;
+}
+.question-box > input, textarea{
+margin: 5px 10px;
+}
+
+textarea{
+    width: 400px;
+    height: 134px;
+}

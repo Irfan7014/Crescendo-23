@@ -24,8 +24,18 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CoursePlaylistComponent } from './components/course-playlist/course-playlist.component';
 import { VideoComponent } from './components/video/video.component';
 import { QuizComponent } from './components/quiz/quiz.component';
+import { DiscussionForumComponent } from './components/discussion-forum/discussion-forum.component';
+import { DiscussionPageComponent } from './components/discussion-forum/discussion-page/discussion-page.component';
 
 const routes: Routes = [
+  {
+    path: 'discussionpage',
+    component: DiscussionPageComponent,
+  },
+  {
+    path: 'discussionforum',
+    component: DiscussionForumComponent,
+  },
   {
     path: 'quiz',
     component: QuizComponent,
@@ -48,7 +58,9 @@ const routes: Routes = [
   declarations: [
     CoursePlaylistComponent,
     VideoComponent,
-    QuizComponent
+    QuizComponent,
+    DiscussionForumComponent,
+    DiscussionPageComponent
   ],
   imports: [
     CommonModule,
