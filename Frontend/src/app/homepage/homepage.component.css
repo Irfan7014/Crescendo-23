@@ -16,8 +16,9 @@ p {
 img {
   display: block;
   border: 0;
-  width: 100%;
-  height: auto;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
 }
 
 .cards {
@@ -45,7 +46,7 @@ img {
   margin: 0px 5px;
 }
 .card {
-  height: 400px;
+  height: 550px;
   /*background: red;*/
   border: 2px solid #e7e7e7;
   border-radius: 4px;
@@ -79,9 +80,6 @@ img {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
   padding: 0px 10px;
 }
 
@@ -157,4 +155,8 @@ footer {
   margin-bottom: 10px;
   padding: 0px 40px;
   padding-top: 10px;
+}
+
+mat-chip{
+  cursor:pointer!important;
 }

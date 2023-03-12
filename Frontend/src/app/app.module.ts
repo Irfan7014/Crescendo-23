@@ -18,7 +18,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HomepageComponent } from './homepage/homepage.component';
 import {MatButtonModule} from '@angular/material/button';
 import { SidenavComponent } from './sidenav/sidenav.component'
-import {MatListModule} from '@angular/material/list'
+import {MatListModule} from '@angular/material/list';
+import { HeaderComponent } from './header-footer/header/header.component';
+import { FooterComponent } from './header-footer/footer/footer.component'
+import { MatChipsModule,MatChipListbox } from '@angular/material/chips';
+import { ContentPageComponent } from './content-page/content-page.component';
+import { AllSubjectsComponent } from './all-subjects/all-subjects.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +32,9 @@ import {MatListModule} from '@angular/material/list'
     LandingPageComponent,
     SafePipe,
     OtpComponent,
-    HomepageComponent,
-    SidenavComponent
+    SidenavComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,7 @@ import {MatListModule} from '@angular/material/list'
     MatButtonModule,
     MatListModule,
     HttpClientModule,
+    MatChipsModule,
     TranslateModule.forRoot({
       loader:{
         provide: TranslateLoader,

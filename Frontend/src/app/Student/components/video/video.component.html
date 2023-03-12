@@ -1,9 +1,9 @@
 <div class="course-playlist-component">
     <div class="course-start-div">
-        <video #videoo autoplay [muted] = "true" id="playing-video" class="video-js vjs-default-skin" width="640px" height="267px" controls preload="none"
-                poster={{video.thumbnail}}
-                data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }'>
-                <source src="{{this.link}}" type='video/mp4'/>
+        <video id="playing-video" class="video-js vjs-default-skin" width="640px" height="267px"
+            poster={{video.thumbnail}}
+            data-setup='{ "aspectRatio":"640:267", "playbackRates": [1, 1.5, 2] }' src="{{this.link}}" controls>
+            <source src="{{this.link}}" type='video/mp4'/>
         </video>
         <p class="video-title">{{this.video.title}}</p>
     </div>
@@ -11,8 +11,7 @@
         <div class="column-1">
             <div class="course-details">
                 <p class="course-details-title">Video Details</p>
-                <p class="details-data">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis consectetur adipiscing elit.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis consectetur adipiscing elit.</p>
+                <p class="details-data">{{this.video.description}}</p>
             </div>
         </div>
         <div class="column-2">
@@ -32,7 +31,7 @@
                     <p>Lifetime</p>
                 </div>
             </div>
-            <button mat-raised-button class="enroll-button">ENROL</button>
+            <button mat-raised-button class="enroll-button">ENROLL</button>
         </div>
     </div>
 
@@ -43,7 +42,6 @@
                 <img class="rec-course-img" src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2020/04/01170800/Free-Online-Courses-with-Certificates.jpg" alt="Recommended Course"/>
                 <div class="rec-course-data">
                     <p class="rec-title">{{rec.title}}</p>
-                    <p class="rec-expert">Expert: <b>{{rec.expert}}</b></p>
                     <p class="rec-category">Category: <b>{{rec.category}}</b></p>
                 </div>
                 <mat-icon class="icon-turnin">turned_in_not</mat-icon>

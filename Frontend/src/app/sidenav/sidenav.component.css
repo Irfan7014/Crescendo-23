@@ -1,0 +1,40 @@
+.sidenav-content{
+    color:white;
+    margin-top: 10px;
+}
+.nav-list{
+    height:100%;
+    padding:0;
+    margin-bottom:0;
+}
+.nav-list-item{
+    display: flex;
+    align-items: center;
+    height:50px;
+    color:white;
+}
+.nav-list-item:hover{
+    background-color: #EEEEEE;
+    cursor:pointer;
+}
+
+.avatar{
+    height:200px;
+    display:block;
+    margin:auto;
+}
+.name{
+    text-align: center;
+    color:white;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top:10px;
+}
+
+.common-icon-style{
+    display: inline;
+    margin-right: 6px;
+    width:32px;
+    height:32px;
+    color:white;
+}

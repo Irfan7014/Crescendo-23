@@ -12,28 +12,19 @@ class SidenavItem{
 })
 export class SidenavComponent implements OnInit {
   @Input() toggleSideNav:boolean = true;
-  clerkSidenavItems:SidenavItem[] = [];
-  studentSidenavItems:SidenavItem[] = [];
+  expertSidenavItems:any[] = [];
+  studentSidenavItems:any[] = [];
   approvedStudentSidenavItems:SidenavItem[] = [];
-  isApproved:boolean = false;
+  isLoggedIn:boolean = false;
   userType:string = '';
   userName:string = '';
   constructor(private route:Router, public domSanitizer: DomSanitizer, public _auth:AuthService) { }
 
   ngOnInit(): void {
-      // for(let i=0;i<res.length;i++){
-      //   this.sidenavIcons.push(res[i]);
-      // }
-      // this.setClerkSidenavItems();
-      // this.setStudentSidenavItems();
-      // this.setApprovedSidenavItems();
-      
-    // },(err:Error)=>{
-    //   console.log("Error fetching icons");
-    // });
-    // this.userType = sessionStorage.getItem('userType')!;
-    // this.userName = sessionStorage.getItem('firstName')! + ' ' + sessionStorage.getItem('lastName')!;
-    // this.isApproved = sessionStorage.getItem('admissionTaken')=='true'?true:false;
+    this.userType = localStorage.getItem('userType')!;
+    this.isLoggedIn = localStorage.getItem('isLoggedIn')!=='true'?true:false;
+    this.setExpertSidenavItems();
+    this.setStudentSidenavItems();
     //TODO : Fetch admission confirmed status and set {this.isApproved} value accordingly
   }
 
@@ -50,25 +41,20 @@ export class SidenavComponent implements OnInit {
   }
 
   setExpertSidenavItems(){
-    this.clerkSidenavItems = [
-      // {name:this.getIconByName('Profile')[0].iconName,link:'/clerk/profile',icon:this.getIconByName('Profile')[0].iconPath,alt:'Dashboard Icon'},
-      // {name:this.getIconByName('Admission Form List')[0].iconName,link:'/clerk/admission-form-list',icon:this.getIconByName('Admission Form List')[0].iconPath ,alt:'Admission Form List Icon'},
-      // {name:this.getIconByName('Merit List')[0].iconName,link:'/clerk/merit-list',icon:this.getIconByName('Merit List')[0].iconPath ,alt:'Merit List Icon'},
-      // {name:this.getIconByName('Master Tables')[0].iconName,link:'/clerk/master-tables',icon:this.getIconByName('Master Tables')[0].iconPath,alt:'Master Tables Icon'},
-      // {name:this.getIconByName('Generate Code')[0].iconName,link:'/clerk/generate-student-code',icon:this.getIconByName('Generate Code')[0].iconPath,alt:'Generate Code Icon'},
-      // {name:this.getIconByName('Reset Password')[0].iconName,link:'/clerk/reset-password',icon:this.getIconByName('Reset Password')[0].iconPath,alt:'Reset Password Icon'},
-      // {name:this.getIconByName('Fee Receipt')[0].iconName,link:'/clerk/fee-payment',icon:this.getIconByName('Fee Receipt')[0].iconPath,alt:'Reset Password Icon'},
-      // {name:this.getIconByName('Certificate List')[0].iconName, link:'/clerk/certificates',icon:this.getIconByName('Certificate List')[0].iconPath,alt:'Certificate Icon'}
+    this.expertSidenavItems = [
+      {name:'Profile', link: '/expert/profile', icon:'../../assets/images/profile.png', alt:'Profile'},
+      {name:'Courses', link: '/expert/course-playlist', icon:'../../assets/images/subjectz-sidenav.png', alt:'Explore Subjects'},
+      {name:'Videos', link: '/expert/video', icon:'../../assets/images/content-sidenav.png', alt:'Explore Content'},
     ]
   }
 
   setStudentSidenavItems(){
     this.studentSidenavItems = [
-      {name:'Profile', link: '/student/profile', icon:'../../assets/images/profile.png', alt:'Profile'},
-      {name:'Courses', link: '/student/course-playlist', icon:'../../assets/images/profile.png', alt:'Profile'},
-      {name:'Videos', link: '/student/video', icon:'../../assets/images/profile.png', alt:'Profile'},
+      {name:'Profile', link: 'student/profile', icon:'../../assets/images/profile-sidenav.png', alt:'Profile'},
+      {name:'All Subjects', link: 'student/all-subjects', icon:'../../assets/images/all-subjects.png', alt:'All Subjects'},
+      {name:'Explore Subjects', link: 'student/subject-content', icon:'../../assets/images/subjects-sidenav.png', alt:'Explore Subjects'},
+      {name:'Videos', link: 'student/video', icon:'../../assets/images/content-sidenav.png', alt:'Explore Content'},
 
-      
     ];
   }
 
