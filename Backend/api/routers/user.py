@@ -7,6 +7,7 @@ from fastapi.responses import JSONResponse
 from fastapi import status, HTTPException
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy import false
+from api.services.user import update_user_responses_service
 
 from api.db.db_config import db, s3
 from api.models.user import UserActivityModel, UserModel, UserTypeEnum
@@ -117,6 +118,15 @@ async def get_user(db= Depends(get_db), current_user: CurrentUser = Depends(get_
     user = await get_user_service(db, current_user.aadhar)
     return user
 
+@user.post('/addOnboardingResponses')
+async def addQuizResponses(db= Depends(get_db),
+                           user_id: str = Query(...),
+                           responses: List[str] = Query(None)):
+    user = await get_user_by_id_service(db, user_id)
+    user['responses'] = responses
+    await update_user_responses_service(db, responses, user)
+    return 'Updated'
+    
 @user.get('/getAllUser')
 async def get_all_users(db= Depends(get_db), current_user: CurrentUser = Depends(get_current_user)):
     if current_user.claims == 'admin':
@@ -131,11 +141,12 @@ async def get_all_users(user_id: str = Query(...), db= Depends(get_db), current_
 
 @user.patch('/updateUser')
 async def update_user(
-        password: Optional[str] = Query(None),
-        email: Optional[str] = Query(None),
-        content_viewed: str = Query(None),
-        course_enrolled: str = Query(None),
-        course_completed: str = Query(None),
+        password: Optional[str] = Body(None),
+        email: Optional[str] = Body(None),
+        content_viewed: str = Body(None),
+        course_enrolled: str = Body(None),
+        course_completed: str = Body(None),
+        quiz_results: Optional[Dict[str, int]] = Body(None),
         db = Depends(get_db),
         current_user: CurrentUser = Depends(get_current_user)
     ):
@@ -148,21 +159,28 @@ async def update_user(
 
     existing_user = await get_user_service(db, current_user.username)
     content=existing_user['activity']['content_viewed']
+    quiz_resultss=existing_user['quiz_results']
+    if quiz_resultss is None:
+        quiz_resultss = []
+    if quiz_results is not None:
+        quiz_resultss.append(quiz_results)
     if content_viewed is not None:
         content.append(content_viewed)
     courses=existing_user['activity']['courses_enrolled']
     if course_enrolled is not None:
         courses[course_enrolled] = False
     if course_completed is not None:
-        courses[course_completed] = True
-
+        courses[course_completed] = True  
+    print(quiz_resultss)
     activity = jsonable_encoder(
         UserActivityModel(
         content_viewed= content,
         courses_enrolled= courses,
+        
         last_active= datetime.utcnow()
     ))
     user['activity'] = activity
+    user['quiz_results'] = quiz_resultss
     update_user = await update_user_service(db, current_user.username, user)
     return update_user
 

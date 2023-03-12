@@ -5,6 +5,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from fastapi import status, HTTPException
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from api.services.forum import get_all_forum_service
 from api.models.objectid import PyObjectId
 from api.services.forum import create_comment_service, create_forum_service, get_comment_service_by_user, get_forum_service, get_forum_service_by_user
 from api.models.forum import ForumCommentModel
@@ -68,7 +69,8 @@ async def createComment(comment: str = Query(...),
     user = await get_user_service(db, current_user.username)
     print('here')
     forum = await get_forum_service(db, thread_id)
-    comments = forum['comment']
+    print(forum)
+    comments = forum[0]['comment']
     comm = jsonable_encoder(
         ForumCommentModel(
             user_id= user['_id'],
@@ -82,6 +84,11 @@ async def createComment(comment: str = Query(...),
     forum['comment'] = comments
     created_comment = await create_comment_service(db, forum, thread_id)
     return created_comment
+@forum.get('/getAllThread')
+async def getThread(
+        db = Depends(get_db)):
+    forum = await get_all_forum_service(db)
+    return forum
 
 @forum.get('/getThread')
 async def getThread(

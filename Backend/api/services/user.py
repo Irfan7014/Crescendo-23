@@ -20,6 +20,14 @@ async def update_user_service(db, email, user):
             return update_user
     return None
 
+async def update_user_responses_service(db, responses, user):
+    update_result = await db["users"].update_one({"responses": responses}, {"$set": user})
+    if update_result.modified_count == 1:
+        update_user = await db["users"].find_one({"responses": responses})
+        if update_user is not None:
+            return update_user
+    return None
+
 async def get_user_service(db, email):
     user = await db["users"].find_one({"email": email})
     return user

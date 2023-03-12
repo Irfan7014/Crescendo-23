@@ -16,6 +16,11 @@ class UserActivityModel(BaseModel):
     courses_enrolled: Dict[str, bool] = Field(...)
     last_active : datetime = Field(...)
 
+class ResultModel(BaseModel):
+    id: str = Field(...)
+    score: int = Field(...)
+    
+
 class UserModel(BaseModel):
     id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
     name: str = Field(...)
@@ -26,6 +31,8 @@ class UserModel(BaseModel):
     email: str = Field(...)
     role: str = Field(...)
     activity: Optional[UserActivityModel] = Field(...)
+    responses: List[str] = Field(...)
+    results: List[ResultModel] = Field(...)
     verified: bool = Field(...)
 
     class Config:

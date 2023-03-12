@@ -21,6 +21,10 @@ async def create_comment_service(db, forum, forum_id):
     updated_forum = await db["forums"].find_one({"_id": forum_id})
     return updated_forum
 
+async def get_all_forum_service(db):
+    result = await db["forums"].find().to_list(1000)
+    return result
+
 async def get_forum_service(db, forum_id):
     result = await db["forums"].find({"_id": forum_id}).to_list(1000)
     return result

@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from api.routers.user import user
 from api.routers.content import content
 from api.routers.forum import forum
+from api.routers.recommendation import recommendation
+from api.routers.quiz import quiz
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(openapi_url="/api/v1/openapi.json", docs_url="/api/v1/docs")
@@ -30,3 +32,5 @@ app.add_middleware(
 app.include_router(user, prefix='/api/v1', tags=['user'])
 app.include_router(content, prefix='/api/v1', tags=['content'])
 app.include_router(forum, prefix='/api/v1', tags=['forum'])
+app.include_router(quiz, prefix='/api/v1', tags=['quiz'])
+app.include_router(recommendation, prefix='/api/v1', tags=['recommendation'])
