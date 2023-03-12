@@ -21,9 +21,9 @@ import { SidenavComponent } from './sidenav/sidenav.component'
 import {MatListModule} from '@angular/material/list';
 import { HeaderComponent } from './header-footer/header/header.component';
 import { FooterComponent } from './header-footer/footer/footer.component'
-import { MatChipsModule,MatChipListbox } from '@angular/material/chips';
 import { ContentPageComponent } from './content-page/content-page.component';
 import { AllSubjectsComponent } from './all-subjects/all-subjects.component';
+import { MatChip, MatChipsModule } from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +35,7 @@ import { AllSubjectsComponent } from './all-subjects/all-subjects.component';
     SidenavComponent,
     HeaderComponent,
     FooterComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,6 @@ import { AllSubjectsComponent } from './all-subjects/all-subjects.component';
     MatButtonModule,
     MatListModule,
     HttpClientModule,
-    MatChipsModule,
     TranslateModule.forRoot({
       loader:{
         provide: TranslateLoader,

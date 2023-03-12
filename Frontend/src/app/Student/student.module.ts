@@ -67,17 +67,23 @@ const routes: Routes = [
   {
     path:'all-subjects',
     component:AllSubjectsComponent
-  }
+  },
 ];
 @NgModule({
   entryComponents:[ProfileComponent],
   declarations: [
     CoursePlaylistComponent,
     VideoComponent,
-    QuizComponent
+    QuizComponent,
+    AllSubjectsComponent,
+    ContentPageComponent,
+    HomepageComponent,
+    DiscussionForumComponent,
+    DiscussionPageComponent
   ],
   imports: [
     CommonModule,
+    MatChipsModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     FormsModule,
@@ -94,10 +100,10 @@ const routes: Routes = [
     MatDividerModule,
     MatCheckboxModule,
     MatTabsModule,
+    MatChipsModule,
     MatDialogModule,
     MatAutocompleteModule,
     HttpClientModule,
-    MatChipsModule,
   ],
   exports: [],
   providers: [DatePipe],
